@@ -1,0 +1,50 @@
+// Banco de dados em SQL Server
+
+create database cadastro_pedidos
+
+use cadastro_pedidos
+
+create TABLE clientes (
+    id INT PRIMARY KEY identity,
+    nome_completo VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+	DDD char (2) not null,
+    telefone varchar (9) not null,
+    cpf varchar (11) NOT NULL,
+    data_nascimento DATE
+);
+
+CREATE TABLE pedidos (
+    id INT PRIMARY KEY identity,
+    cliente_id INT,
+    produto_id INT,
+    quantidade INT NOT NULL,
+    valor_total DECIMAL(10, 2) NOT NULL,
+    data_pedido DATE NOT NULL,
+    vendedor VARCHAR(100) NOT NULL,
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id),
+    FOREIGN KEY (produto_id) REFERENCES produtos(id)
+);
+
+
+CREATE TABLE produtos (
+    id INT PRIMARY KEY identity,
+    nome_produto VARCHAR(100) NOT NULL
+);
+
+insert into clientes (nome_completo, email, DDD, telefone, cpf, data_nascimento)
+values ('Kauã Salles', 'salleskaua52@gmail.com', '24', '992611088', '46423854874', '2007-11-01'),
+	   ('Igor Teles', 'igorzola@gmail.com', '17', '981346128', '45312789075', '2007-06-21')
+
+insert into produtos (nome_produto)
+values ('Iphone 15'),
+	   ('Iphone 16')
+
+INSERT INTO pedidos (cliente_id, produto_id, quantidade, valor_total, data_pedido, vendedor)
+VALUES (1, 1, 2, 5300.00, '2024-09-15', 'Kamillão'),
+	   (2, 2, 1, 8100.00, '2024-09-10', 'Lazarento')
+
+
+select * from clientes
+select * from produtos
+select * from pedidos
