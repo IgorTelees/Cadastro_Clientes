@@ -5,11 +5,11 @@ const cors = require('cors');  // Para habilitar o CORS e permitir o acesso pelo
 
 // Configuração de conexão com o banco de dados SQL Server
 const dbConfig = {
-    user: 'kaua',
-    password: '123',
-    server: '195.200.6.31',
-    port: 1433,
-    database: 'cadastro_pedidos',
+    user: '',
+    password: '',
+    server: '',
+    port: '',
+    database: '',
     options: {
         encrypt: true, 
         trustServerCertificate: true,
